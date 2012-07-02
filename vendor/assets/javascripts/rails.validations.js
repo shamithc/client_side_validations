@@ -338,13 +338,15 @@ var clientSideValidations = {
         var errorFieldClass = jQuery(settings.input_tag).attr('class'),
             inputErrorField = element.closest('.' + errorFieldClass),
             label = jQuery('label[for="' + element.attr('id') + '"]:not(.message)'),
-            labelErrorField = label.closest('.' + errorFieldClass);
+            labelErrorField = label.closest('.' + errorFieldClass),
+            message = 'Success';
 
         if (inputErrorField[0]) {
-          inputErrorField.find('#' + element.attr('id')).detach();
+          jQuery('label.message[for="' + element.attr('id') + '"]').text(message);
+          /* inputErrorField.find('#' + element.attr('id')).detach();
           inputErrorField.replaceWith(element);
           label.detach();
-          labelErrorField.replaceWith(label);
+          labelErrorField.replaceWith(label); */
         }
       }
     },
